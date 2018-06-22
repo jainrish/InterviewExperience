@@ -17,7 +17,7 @@ public class ReviewController {
 	@GET
 	@RequestMapping("/experiences")
 	public ResponseEntity<Object> getExperiences() {
-		return ResponseEntity.ok("Tested ok!!");
+		return ResponseEntity.ok("Hello world!!");
 	}
 	
 }

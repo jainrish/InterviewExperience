@@ -1,1 +1,1 @@
-web: java -jar target/visa-interview-experience-1.0.jar
+web: java -jar target/interview-experience-1.0.jar
