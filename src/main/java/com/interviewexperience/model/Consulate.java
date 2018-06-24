@@ -9,7 +9,6 @@ public class Consulate {
 	
 	public Consulate(String consulateID, String visaCountry,
 			String consulateCity, String consulateCountry) {
-		super();
 		this.consulateID = consulateID;
 		this.visaCountry = visaCountry;
 		this.consulateCity = consulateCity;

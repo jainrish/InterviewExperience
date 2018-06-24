@@ -16,6 +16,8 @@
 
 package com.interviewexperience;
 
+import java.util.UUID;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,7 @@ public class Application {
 
 
   public static void main(String[] args) throws Exception {
+	  System.out.println(UUID.randomUUID().toString());
     SpringApplication.run(Application.class, args);
   }
 
