@@ -12,4 +12,11 @@ public interface IConstants {
 	String VISA_TYPE_GET_BY_COUNTRY_CODE = "SELECT * FROM VisaType WHERE country_code = ?";
 	String VISA_TYPE_GET_BY_VISA_TYPE_UUID = "SELECT * FROM VisaType WHERE visa_type_uuid = ?";
 	String VISA_TYPE_GET_ALL = "SELECT * FROM VisaType";
+	
+	String CREATE_COUNTRY_TABLE = "CREATE TABLE Country ( country_name VARCHAR(60) NOT NULL, iso_2_code CHAR (2) NOT NULL, iso_3_code CHAR (3) PRIMARY KEY, un_number smallint NOT NULL, dialing_code varchar(20) NOT NULL, created_ts TIMESTAMP NOT NULL, CONSTRAINT ISO_2 UNIQUE(iso_2_code), CONSTRAINT ISO_3 UNIQUE(iso_3_code))";
+	String COUNTRY_INSERT = "INSERT INTO Country (country_name, iso_2_code, iso_3_code, un_number, dialing_code, created_ts) VALUES (?, ?, ?, ?, ?, clock_timestamp())";
+	String COUNTRY_GET_BY_NAME = "SELECT * FROM Country where country_name = ?";
+	String COUNTRY_GET_BY_ISO_2_CODE = "SELECT * from Country where iso_2_code = ?";
+	String COUNTRY_GET_BY_ISO_3_CODE = "SELECT * from Country where iso_3_code = ?";
+	String COUNTRY_GET_ALL = "SELECT * FROM Country";
 }

@@ -14,6 +14,7 @@ import static com.interviewexperience.constants.IConstants.*;
 
 import com.interviewexperience.dao.VisaTypeDao;
 import com.interviewexperience.dao.rowmapper.RowMappers;
+import com.interviewexperience.exception.InterviewExperienceException;
 import com.interviewexperience.model.VisaType;
 
 @Repository
@@ -52,12 +53,14 @@ public class VisaTypeDaoImpl extends JdbcDaoSupport implements VisaTypeDao{
 	}
 
 	@Override
-	public VisaType findVisaTypeByUUID(String uuid) {
+	public VisaType findVisaTypeByUUID(String uuid) throws InterviewExperienceException{
 		List<VisaType> result = getJdbcTemplate().query(VISA_TYPE_GET_BY_VISA_TYPE_UUID, new Object[]{uuid}, RowMappers.getVisaTypeRowMapper());
 		if(CollectionUtils.isNotEmpty(result)) {
 			return result.get(0);
-		} 
-		return null;
+		} else {
+			throw new InterviewExperienceException("Invalid uuid");
+		}
+		
 	}
 
 }

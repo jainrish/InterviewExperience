@@ -5,11 +5,11 @@ public class Country {
 	private String name;
 	private String iso2LetterCode;
 	private String iso3LetterCode;
-	private String unNumber;
+	private Integer unNumber;
 	private String dialingCode;
 
 	public Country(String name, String iso2LetterCode, String iso3LetterCode,
-			String unNumber, String dialingCode) {
+			Integer unNumber, String dialingCode) {
 		super();
 		this.name = name;
 		this.iso2LetterCode = iso2LetterCode;
@@ -30,7 +30,7 @@ public class Country {
 		return iso3LetterCode;
 	}
 
-	public String getUnNumber() {
+	public Integer getUnNumber() {
 		return unNumber;
 	}
 

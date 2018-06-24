@@ -2,6 +2,7 @@ package com.interviewexperience.dao;
 
 import java.util.List;
 
+import com.interviewexperience.exception.InterviewExperienceException;
 import com.interviewexperience.model.VisaType;
 
 public interface VisaTypeDao {
@@ -10,6 +11,6 @@ public interface VisaTypeDao {
 	public void insertBatch(List<VisaType> visaTypes);
 	public List<VisaType> loadAllVisaTypes();
 	public List<VisaType> findVisaTypeByCountryCode(String countryCode);
-	public VisaType findVisaTypeByUUID(String uuid);
+	public VisaType findVisaTypeByUUID(String uuid) throws InterviewExperienceException;
 	
 }
