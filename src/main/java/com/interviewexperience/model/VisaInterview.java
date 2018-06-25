@@ -14,6 +14,17 @@ public class VisaInterview {
 
 	public VisaInterview() {
 	}
+	
+	public VisaInterview(String interviewUUID, String date, String consulateID,
+			String visaTypeUUID, String status, String intervieweeName) {
+		super();
+		this.interviewUUID = interviewUUID;
+		this.date = date;
+		this.consulateID = consulateID;
+		this.visaTypeUUID = visaTypeUUID;
+		this.status = status;
+		this.intervieweeName = intervieweeName;
+	}
 
 	public VisaInterview(String interviewUUID, String date, String consulateID,
 			String visaTypeUUID, String status, String intervieweeName,

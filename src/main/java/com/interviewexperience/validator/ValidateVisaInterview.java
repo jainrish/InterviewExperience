@@ -1,8 +1,9 @@
 package com.interviewexperience.validator;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.cxf.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,7 @@ public class ValidateVisaInterview implements Validator<VisaInterview> {
 	@Autowired
 	EnumsCache enumsCache;
 	
-	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-	
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 	
 	@Override
 	public void validate(VisaInterview visaInterview) throws InterviewExperienceException{
@@ -35,10 +35,14 @@ public class ValidateVisaInterview implements Validator<VisaInterview> {
 		
 		try {
 			if (!StringUtils.isEmpty(visaInterview.getDate())) {
-				simpleDateFormat.parse(visaInterview.getDate());
+				formatter.parse(visaInterview.getDate());
 			}
-		} catch (ParseException ex) {
+		} catch (DateTimeParseException ex) {
 			errorList.append("VisaDate is invalid | ");
+		}
+		
+		if(CollectionUtils.isEmpty(visaInterview.getConversations()) || visaInterview.getConversations().size() ==1) {
+			errorList.append("At least two messages should be present |");
 		}
 		
 		if(errorList.length()!=0) {
