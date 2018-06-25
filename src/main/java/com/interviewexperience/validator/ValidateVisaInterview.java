@@ -44,7 +44,7 @@ public class ValidateVisaInterview implements Validator<VisaInterview> {
 		if(CollectionUtils.isEmpty(visaInterview.getConversations()) || visaInterview.getConversations().size() ==1) {
 			errorList.append("At least two messages should be present |");
 		}
-		
+				
 		if(errorList.length()!=0) {
 			throw new InterviewExperienceException(errorList.toString());
 		}

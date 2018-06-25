@@ -33,7 +33,7 @@ public class InterviewConversationDaoImpl extends JdbcDaoSupport implements
 				interviewConversation.getInterviewUUID(),
 				interviewConversation.getSequenceNumber(),
 				interviewConversation.getSpeakerIdentity(),
-				interviewConversation.getSequenceNumber());
+				interviewConversation.getMessage());
 	}
 
 	@Override
