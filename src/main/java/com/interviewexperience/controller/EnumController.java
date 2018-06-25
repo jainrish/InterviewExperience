@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.interviewexperience.cache.EnumsCache;
+import com.interviewexperience.dao.impl.ConsulateDaoImpl;
 import com.interviewexperience.dao.impl.CountryDaoImpl;
 import com.interviewexperience.dao.impl.VisaTypeDaoImpl;
+import com.interviewexperience.model.Consulate;
+import com.interviewexperience.model.VisaType;
 
 
 
@@ -29,11 +33,30 @@ public class EnumController {
 	@Autowired
 	CountryDaoImpl countryDaoImpl;
 	
+	@Autowired
+	ConsulateDaoImpl consulateDaoImpl;
+	
+	@Autowired
+	EnumsCache enumsCache;
+	
+	@GET
+	@RequestMapping("/consulate/{consulateID}")
+	public ResponseEntity<Object> getConsulateByID(@PathVariable("consulateID") String consulateID) {
+		return ResponseEntity.ok(consulateDaoImpl.findConsulateByID(consulateID));
+	}
+	
+	@GET
+	@RequestMapping("/consulates")
+	public ResponseEntity<Object> getConsulates() {
+		return ResponseEntity.ok(enumsCache.getAllEnumsByType(Consulate.class));
+	}
+	
 	@GET
 	@RequestMapping("/visaTypes")
 	public ResponseEntity<Object> getVisaTypes(@RequestParam(value = "countryCode", required = false) String countryCode){
+		
 		if(StringUtils.isEmpty(countryCode)) {
-			return ResponseEntity.ok(visaTypeDaoImpl.loadAllVisaTypes());
+			return ResponseEntity.ok(enumsCache.getAllEnumsByType(VisaType.class));
 		} else {
 			return ResponseEntity.ok(visaTypeDaoImpl.findVisaTypeByCountryCode(countryCode));
 		}

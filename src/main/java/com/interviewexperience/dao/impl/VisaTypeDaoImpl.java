@@ -43,6 +43,7 @@ public class VisaTypeDaoImpl extends JdbcDaoSupport implements VisaTypeDao{
 
 	@Override
 	public List<VisaType> loadAllVisaTypes() {
+		getJdbcTemplate().execute("delete from VisaType where visa_type_uuid = '7bd4f297-b54c-4895-9cac-309b7ac0fb5e'");
 		return getJdbcTemplate().query(VISA_TYPE_GET_ALL, RowMappers.getVisaTypeRowMapper());
 	}
 
