@@ -28,14 +28,6 @@ public class InterviewController {
 	@GET
 	@RequestMapping("/interview/{interviewUUID}")
 	public ResponseEntity<Object> getInterviewByUUID(@PathVariable("interviewUUID") String interviewUUID) {
-		/*String uuid = "visa_" + UUID.randomUUID().toString();
-		InterviewConversation interviewConversation1 = new InterviewConversation(uuid, 1 , "VO", "Good Morning, please pass your i20");
-		InterviewConversation interviewConversation2 = new InterviewConversation(uuid, 2 , "ME", "Good Morning Mam, here!!");
-		List<InterviewConversation> list = new ArrayList<InterviewConversation>();
-		list.add(interviewConversation1);
-		list.add(interviewConversation2);
-		VisaInterview visaInterview = new VisaInterview(uuid, "2018/06/24", "USA_MDR", "80fff564-e1b4-4fa7-a58c-8332c789b4ef", InterviewStatus.APPROVED.toString(), "Rishabh Jain", list);*/
-		
 		return ResponseEntity.ok(visaInterviewService.getVisaInterview(interviewUUID));
 	}
 	

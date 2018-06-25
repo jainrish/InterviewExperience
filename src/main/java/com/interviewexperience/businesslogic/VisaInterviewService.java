@@ -30,7 +30,7 @@ public class VisaInterviewService {
 	@Transactional
 	public void addVisaInterview(VisaInterview visaInterview) throws InterviewExperienceException{
 		validateVisaInterview.validate(visaInterview); 
-		String interviewUUID = "visa_".concat(UUID.randomUUID().toString());
+		String interviewUUID = "visa-".concat(UUID.randomUUID().toString());
 		System.out.println(interviewUUID);
 		visaInterview.setInterviewUUID(interviewUUID);
 		
