@@ -1,0 +1,54 @@
+.container { margin-top:9px; }
+
+.bs-example{
+    margin: 20px;
+}
+
+body { 
+	background:#e1e1e1;
+}
+#wrapper {
+	box-shadow:0 0 8px rgba(0,0,0,0.25);
+}
+#wrapper.well {
+	background:#fff;
+	border-radius:0;
+}
+
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #CC3333;
+}
+
+.btn3d {
+    transition:all .08s linear;
+    position:relative;
+    outline:medium none;
+    border:0px;
+    margin-right:10px;
+    margin-top:15px;
+}
+.btn3d:focus {
+    outline:medium none;
+}
+.btn3d:active {
+    top:9px;
+}
+ .btn-info {
+    box-shadow:0 0 0 1px #337ab7 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #337ab7, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#337ab7;
+    display:inline-block;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+.btn-primary.btn-outline:hover {
+    color: #fff;
+}
