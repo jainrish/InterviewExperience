@@ -11,7 +11,7 @@ export class EnumsService {
 
   constructor(private http:HttpClient) { }
 
-  getVisaTypes() {
+  public getVisaTypes() {
     return this.http.get('/server/enums/visaTypes');
   }
 }

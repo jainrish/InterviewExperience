@@ -1,3 +1,20 @@
-<p>
-  search works!
-</p>
+<div class="container">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>
+        Country
+      </th>
+      <th>
+        Visa Code
+      </th>
+    </tr>
+    <tr *ngFor="let visaType of visaTypes">
+      <td>
+        {{visaType.country}}
+      </td>
+      <td>
+        {{visaType.visaCode}}
+      </td>
+    </tr>
+  </table>
+</div>>

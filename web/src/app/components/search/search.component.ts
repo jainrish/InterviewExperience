@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnumsService } from '../../services/enums.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  public visaTypes;
+  constructor(private enumsService: EnumsService) { }
 
   ngOnInit() {
+    this.getVisaTypes();
+  }
+
+
+  getVisaTypes() {
+    this.enumsService.getVisaTypes().subscribe( 
+      data => {this.visaTypes = data},
+      err => console.error(err),
+      () => console.log(this.visaTypes)
+    );
   }
 
 }
