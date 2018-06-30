@@ -9,10 +9,12 @@ import { EnumsService } from '../../services/enums.service';
 export class SearchComponent implements OnInit {
 
   public visaTypes;
+  public consulates;
   constructor(private enumsService: EnumsService) { }
 
   ngOnInit() {
     this.getVisaTypes();
+    this.getConsulates();
   }
 
 
@@ -20,7 +22,15 @@ export class SearchComponent implements OnInit {
     this.enumsService.getVisaTypes().subscribe( 
       data => {this.visaTypes = data},
       err => console.error(err),
-      () => console.log(this.visaTypes)
+      () => console.log("Fetched "+ this.visaTypes.length +" visaTypes")
+    );
+  }
+
+  getConsulates() {
+    this.enumsService.getConsulates().subscribe( 
+      data => {this.consulates = data},
+      err => console.error(err),
+      () => console.log("Fetched "+ this.consulates.length +" consulates")
     );
   }
 

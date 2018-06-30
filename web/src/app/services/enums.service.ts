@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,11 +7,23 @@ const httpOptions = {
 }
 
 @Injectable()
-export class EnumsService {
+export class EnumsService{
 
-  constructor(private http:HttpClient) { }
+  private visaTypes;
+  private consulates;
+
+  constructor(private http:HttpClient) { this.initialize(); }
+
+  private initialize() {
+    this.consulates = this.http.get('/server/enums/consulates');
+    this.visaTypes = this.http.get('/server/enums/visaTypes');
+  }
 
   public getVisaTypes() {
-    return this.http.get('/server/enums/visaTypes');
+    return this.visaTypes;
+  }
+
+  public getConsulates() {
+    return this.consulates;
   }
 }
