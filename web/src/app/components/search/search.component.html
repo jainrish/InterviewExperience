@@ -17,4 +17,24 @@
       </td>
     </tr>
   </table>
-</div>>
+</div>
+<div style="float:left;padding:10px;margin:0 auto;" *ngIf="interviewTypes">
+    <select>
+      <option *ngFor="let interviewType of interviewTypes" value="{{interviewType}}">{{interviewType}}</option>
+    </select>
+    <p>{{ selectedInterviewType }}</p>
+  </div>
+
+  <div style="float:left;padding:10px;margin:0 auto;" *ngIf="countries">
+      <select (change)="selectCountryChangeHandler($event)">
+        <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+      </select>
+      <p>{{ selectedCountry }}</p>
+    </div>
+
+<div style="float:left;padding:10px;margin:0 auto;" *ngIf="visaTypes">
+  <select>
+    <option *ngFor="let visaType of visaTypes" value="{{visaType.visaCode}}">{{visaType.visaCode}}</option>
+  </select>
+  <p>{{ selectedVisaType }}</p>
+</div>
